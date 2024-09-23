@@ -6,3 +6,6 @@ $('.tab_button a').click(function(event){
   $('.tab_contents').hide();
   $('.tab_contents').eq(index).show();
 });
+
+
+var mixer = mixitup('.project_img');
