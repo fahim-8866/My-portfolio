@@ -1,0 +1,418 @@
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Playpen+Sans:wght@100..800&display=swap');
+
+body{
+    font-family: "Hind Siliguri", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+/* navbar part  */
+nav{
+    border-bottom: 4px solid #8000ff;
+}
+.offcanvas-header{
+    border-bottom: 4px solid #8000ff;
+}
+
+.logo_d{
+    color: #8000ff;
+}
+.manu_part ul li a{
+    position: relative;
+}
+.manu_part ul li a::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #8000ff;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    transition: 0.5s;
+}
+.manu_part ul li a:hover::after{
+    width: 100%;
+   
+}
+
+/* navbar part  */
+
+/* online icons  */
+.c_icon a{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 8px;
+    color: black;
+    text-decoration: none;
+}
+.c_icon a i{
+    border-radius: 40%;
+    border: 1px solid black;
+    padding: 10px;
+    transition: 0.5s;
+}
+.c_icon a .fa-facebook-f:hover{
+   background-color: blue;
+   color: white;
+    transform: scale(1.2);
+}
+.c_icon a .fa-linkedin-in:hover{
+    background-color: rgb(11, 108, 235);
+    color: white;
+     transform: scale(1.2);
+ }
+.c_icon a .fa-twitter:hover{
+    background-color: rgb(13, 157, 214);
+    color: white;
+    transform: scale(1.2);
+}
+.c_icon a .fa-envelope:hover{
+    background-color: wheat;
+    color: red;
+    transform: scale(1.2);
+}
+.c_icon{
+    position: fixed;
+    left: 30px;
+    top: 30%;
+    transform: translate(-30%);
+    background-color: white;
+    border-radius: 50px;
+    box-shadow: 2px 2px 10px black;
+}
+/* online icons  */
+
+
+
+/* mobile view of online icons */
+.mbl_icon{
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    display: none;
+    z-index: 1;
+}
+
+/* mobile view of online icons */
+
+
+
+
+
+
+/* home part  */
+
+/* left part of the home section  */
+.Home_heading{
+    margin-top: 20%;
+}  
+.Home_heading h6{
+    letter-spacing: 8px;
+    margin-top: 20px;
+    font-family: "Playpen Sans", system-ui;
+    font-weight: 600px;
+}
+.Home_heading h2{
+    font-size: 35px;
+    margin-top: 25px;
+
+}
+.Home_heading h1{
+    font-size: 65px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #8000ff;
+    font-family: "Playpen Sans", system-ui;
+}
+.Home_heading h3{
+    /* font-size: 30px; */
+    margin-top: 30px;
+}
+.Home_heading .cv_btn{
+    display: block;
+    padding: 15px;
+    margin-bottom: 50px;
+    border: 1px solid #8000ff;
+    color: #8000ff;
+    margin-top: 70px;
+    width:190px;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.5s ease-in;
+    border-radius: 30px;
+}
+
+.Home_heading .cv_btn:hover{
+    background-color: #8000ff;
+    color: white;
+}
+
+
+/* right part of the home section  */
+
+/* home part  */
+
+
+
+/* About part start  */
+#About_me{
+    margin-top: 145px;
+}
+.about_img img{
+    height: 500px;
+    
+}
+.About_body h1{
+    font-weight: bold;
+    margin-bottom: 30px;
+    letter-spacing: 15px;
+    font-size: 42px;
+}
+.tab_button{
+    margin: 20px 0 40px;
+}
+.tab_button a{
+    text-decoration: none;
+    color: black;
+}
+.tab_button  p{
+    margin-left: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: "Playpen Sans", system-ui;
+    position: relative;
+}
+
+.tab_button a.active{
+    color: #8000ff;
+}
+.tab_contents ul{
+    list-style-type: none;
+}
+.tab_contents ul li span{
+    color: #8000ff;
+    font-size: 18px;
+}
+.tab_contents ul li {
+    margin: 20px 0; 
+}
+.tab_contents{
+    display: none;
+}
+.active_content{
+    display: block;
+}
+/* About part End */
+
+
+
+/* Service part start  */
+#service{
+    margin-top: 120px;
+}
+.Service_heading h1{
+    font-size: 42px;
+    text-align: center;
+    letter-spacing: 15px;
+    font-weight: bold;
+}
+.service_part1 i{
+    font-size: 70px;
+    font-weight: bolder;
+    padding: 10px;
+    text-align: center;
+}
+.service_part1{
+    transition: background 0.5s, transform 0.5s;
+    
+}
+.service_part1:hover{
+    background-color: #8000ff;
+    color: white;
+    transform: translateY(-10px);
+}
+/* Service part end */
+
+
+
+/* My work part */
+.work_heading h1{
+    font-size: 42px;
+    text-align: center;
+    letter-spacing: 15px;
+    font-weight: bold;
+}
+/* My work part */
+
+
+
+
+
+/* this media for navbar  */
+@media (max-width: 990px) {
+  
+    .offcanvas {
+        margin-top: 120px;
+        margin-bottom: 300px;
+       
+    }
+    .slider{
+        background-color: rgb(255, 255, 255, 0.15);
+        backdrop-filter: blur(55px);
+    }
+}
+
+/* big screen  */
+@media (min-width: 1281px) {
+  
+    .Home_heading{
+        margin-left: 40px;
+     } 
+     .about_img img{
+        margin-left: 40px;
+    }
+}
+
+
+/* mid sreen  to long sreen  */
+@media (min-width: 1100px) and (max-width: 1280px) {
+    .Home_heading{
+        margin-left: 40px;
+    } 
+   .about_img img{
+    margin-left: 30px;
+   }
+    
+}
+
+
+/* large laptop screen  */
+@media (min-width: 1000px) and (max-width: 1099px) {
+  
+    .Home_heading{
+        margin-left: 40px;
+    } 
+    .about_img img{
+        margin-left: 40px;
+       
+    }
+   
+}
+
+/* small laptop and tap (landscape)*/
+@media (min-width: 768px) and (max-width: 999px) and (orientation: landscape) {
+   
+   .c_icon{
+        display: none;
+   }
+   .mbl_icon{
+    display: block;
+   }
+   .mbl_icon a{
+        text-decoration: none;
+        align-items: center;
+        margin-left: 120px;
+    }
+    .mbl_icon a i{
+        text-align: center;
+        color: white;
+        font-size: 25px;
+        margin-top: 10px;
+    }
+    
+}
+
+/* small laptop and tap (portrait)*/
+@media (min-width: 768px) and (max-width: 999px) {
+    
+  
+    .c_icon{
+        display: none;
+    }
+    .mbl_icon{
+        display: block;
+    }
+    .mbl_icon a{
+        text-decoration: none;
+        align-items: center;
+        margin-left: 120px;
+    }
+    .mbl_icon a i{
+        text-align: center;
+        color: white;
+        font-size: 25px;
+        margin-top: 10px;
+    }
+}
+
+
+/* large mbl sreen  */
+@media (min-width: 481px) and (max-width: 767px) {
+  
+   
+    .c_icon{
+        display: none;
+    }
+    .mbl_icon{
+        display: block;
+    }
+    .mbl_icon a{
+        text-decoration: none;
+        align-items: center;
+        margin-left: 80px;
+    }
+    .mbl_icon a i{
+        text-align: center;
+        color: white;
+        font-size: 25px;
+        margin-top: 10px;
+    }
+}
+
+
+/* Small mobile screen  */
+@media (min-width: 320px) and (max-width: 480px) {
+   
+   .c_icon{
+    display: none;
+   }
+   .mbl_icon{
+    display: block;
+    }
+    .mbl_icon a{
+        text-decoration: none;
+        align-items: center;
+        margin-left: 60px;
+    }
+    .mbl_icon a i{
+        text-align: center;
+        color: white;
+        font-size: 25px;
+        margin-top: 10px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 407px){
+    .mbl_icon{
+        display: block;
+    }
+    .mbl_icon a{
+        text-decoration: none;
+        align-items: center;
+        margin-left: 40px;
+    }
+    .mbl_icon a i{
+        text-align: center;
+        color: white;
+        font-size: 25px;
+        margin-top: 10px;
+    }
+}
