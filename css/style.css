@@ -12,16 +12,20 @@ body{
 /* navbar part  */
 nav{
     border-bottom: 4px solid #8000ff;
+    background-color: #112a34;
+    
+    
 }
 .offcanvas-header{
     border-bottom: 4px solid #8000ff;
+    background-color: #112a34;
 }
-
 .logo_d{
     color: #8000ff;
 }
 .manu_part ul li a{
     position: relative;
+    color: white !important;
 }
 .manu_part ul li a::after {
     content: '';
@@ -32,6 +36,9 @@ nav{
     left: 0;
     bottom: -1px;
     transition: 0.5s;
+}
+.manu_part ul li .active::after{
+    width: 70%;
 }
 .manu_part ul li a:hover::after{
     width: 100%;
@@ -111,6 +118,7 @@ nav{
 /* home part  */
 
 /* left part of the home section  */
+
 .Home_heading{
     margin-top: 20%;
 }  
@@ -163,9 +171,7 @@ nav{
 
 
 /* About part start  */
-#About_me{
-    margin-top: 145px;
-}
+
 .about_img img{
     height: 500px;
     
@@ -216,9 +222,7 @@ nav{
 
 
 /* Service part start  */
-#service{
-    margin-top: 120px;
-}
+
 .Service_heading h1{
     font-size: 42px;
     text-align: center;
@@ -245,9 +249,7 @@ nav{
 
 
 /* My work part */
-#My_work{
-    margin-top: 120px;
-}
+
 .work_heading h1{
     font-size: 42px;
     text-align: center;
@@ -350,6 +352,23 @@ nav{
 }
 /* contact and form part End */
 
+/* footer part start  */
+footer{
+    background-color: #112a34;
+    
+    width: 100%;
+    height: 100px;
+   
+}
+footer h4{
+    color: white;
+    padding-top: 40px;
+    text-align: center;
+}
+footer span{
+    color: #8000ff;
+}
+/* footer part End  */
 
 
 
@@ -424,7 +443,9 @@ nav{
         font-size: 25px;
         margin-top: 10px;
     }
-    
+    footer{
+        margin-bottom: 40px;
+    }
 }
 
 /* small laptop and tap (portrait)*/
@@ -447,6 +468,9 @@ nav{
         color: white;
         font-size: 25px;
         margin-top: 10px;
+    }
+    footer{
+        margin-bottom: 40px;
     }
 }
 
@@ -472,6 +496,10 @@ nav{
         font-size: 25px;
         margin-top: 10px;
     }
+    footer{
+        margin-bottom: 40px;
+    }
+    
 }
 
 
@@ -495,6 +523,12 @@ nav{
         font-size: 25px;
         margin-top: 10px;
     }
+    footer{
+        margin-bottom: 40px;
+    }
+    footer h4{
+        font-size: 18px;
+    }
 }
 
 @media (min-width: 320px) and (max-width: 407px){
@@ -511,5 +545,8 @@ nav{
         color: white;
         font-size: 25px;
         margin-top: 10px;
+    }
+    footer{
+        margin-bottom: 40px;
     }
 }

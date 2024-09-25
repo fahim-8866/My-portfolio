@@ -9,3 +9,13 @@ $('.tab_button a').click(function(event){
 
 
 var mixer = mixitup('.project_img');
+
+$(document).ready(function () {
+  $('.navbar-nav').on('click', 'a', function(){
+    $('.navbar-nav a.active').removeClass('active');
+    $(this).addClass('active');
+  })
+    
+});
+
+
