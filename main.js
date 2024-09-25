@@ -19,3 +19,10 @@ $(document).ready(function () {
 });
 
 
+$(document).ready(function () {
+  var typed = new Typed('#element', {
+    strings: ['Font-End Developer', 'Back-End Developer', 'PHP Lalavel Developer'],
+    typeSpeed: 80,
+    loop:true
+  })
+});
