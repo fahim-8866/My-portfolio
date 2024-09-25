@@ -26,3 +26,36 @@ $(document).ready(function () {
     loop:true
   })
 });
+
+$(document).ready(function () {
+  $("#form").validate({
+    rules:{
+      email:{
+        email:true,
+        required: true,
+      },
+      textarea:{
+        
+        required:true,
+      },
+      username:{
+        
+        required:true,
+      },
+    },
+    messages: {
+      email:{
+        required:"Please Enter Your Email"
+      },
+      textarea:{
+        required:"Please Write Something"
+      },
+      username:{
+        required:"Please Enter Your Name"
+      },
+    },
+    submitHandler: function(form) {
+      form.submit();
+    },
+    });
+});

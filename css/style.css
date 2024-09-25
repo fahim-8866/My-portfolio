@@ -112,9 +112,6 @@ nav{
 
 
 
-
-
-
 /* home part  */
 
 /* left part of the home section  */
@@ -337,20 +334,20 @@ nav{
 
 
 /* form part  */
-.form_btn{
-    margin-top: 30px;
-    
-}
-.form_btn a{
-    text-decoration: none;
-    background-color: #8000ff;
-    color: white;
-    padding: 15px;
-    text-align: center;
+.submit_btn input{
+    padding: 10px;
     border-radius: 10px;
-    
+    width: 100%;
+    background-color:#8000ff ;
+    color: white;
+}
+.error{
+    color: red;
 }
 /* contact and form part End */
+
+
+
 
 /* footer part start  */
 footer{
