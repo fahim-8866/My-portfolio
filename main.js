@@ -27,6 +27,10 @@ $(document).ready(function () {
   })
 });
 
+
+
+
+
 $(document).ready(function () {
   $("#form").validate({
     rules:{
@@ -54,8 +58,22 @@ $(document).ready(function () {
         required:"Please Enter Your Name"
       },
     },
+
+
     submitHandler: function(form) {
-      form.submit();
+      // form.submit();
+      $("#successMessage").show();
+      form.reset();
+      setTimeout(function() {
+        $("#successMessage").hide();
+      }, 3000);
+      
+      
     },
     });
+
 });
+
+
+
+
