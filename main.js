@@ -76,4 +76,15 @@ $(document).ready(function () {
 
 
 
-
+$(document).ready(function(){
+  $(window).scroll(function(){
+    if(this.scrollY > 50){
+      $("#backtotop").fadeIn();
+    }else{
+      $("#backtotop").fadeOut();
+    }
+  })
+  $("#backtotop").click(function(){
+    $("html,body").animate({scrollTop:0},900);
+  })
+}); 

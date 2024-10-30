@@ -368,6 +368,32 @@ footer span{
 /* footer part End  */
 
 
+/* topup bottom */
+.topup{
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    background-color: #8000ff;
+    display: block;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 10px black;
+    transition: all 0.3s;
+    cursor: pointer;
+    display: none;
+}
+.topup i{
+    font-size: 30px;
+    text-align: center;
+}
+.topup:hover{
+    transform: translateY(-5px);
+}
+/* topup bottom */
+
 
 /* this media for navbar  */
 @media (max-width: 990px) {
