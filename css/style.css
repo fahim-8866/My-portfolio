@@ -384,6 +384,7 @@ footer span{
     transition: all 0.3s;
     cursor: pointer;
     display: none;
+    z-index: 1;
 }
 .topup i{
     font-size: 30px;
@@ -495,6 +496,9 @@ footer span{
     footer{
         margin-bottom: 40px;
     }
+    .topup{
+        bottom: 58px;
+    }
 }
 
 
@@ -522,7 +526,9 @@ footer span{
     footer{
         margin-bottom: 40px;
     }
-    
+    .topup{
+        bottom: 58px;
+    }
 }
 
 
@@ -552,6 +558,9 @@ footer span{
     footer h4{
         font-size: 18px;
     }
+    .topup{
+        bottom: 58px;
+    }
 }
 
 @media (min-width: 320px) and (max-width: 407px){
@@ -571,5 +580,8 @@ footer span{
     }
     footer{
         margin-bottom: 40px;
+    }
+    .topup{
+        bottom: 58px;
     }
 }
