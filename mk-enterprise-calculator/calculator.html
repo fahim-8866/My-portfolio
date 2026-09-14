@@ -1,1 +1,53 @@
-<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111"><title>M & K Enterprise Calculator</title><style>*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f5f7;color:#111}.app{max-width:560px;margin:auto;padding:18px}.head{background:#111;color:#fff;border-radius:18px;padding:20px;text-align:center}.logo{font-size:27px;font-weight:800}.logo b{color:#e11}.sub{opacity:.8;font-size:13px}.card{background:#fff;border-radius:16px;padding:16px;margin-top:14px;box-shadow:0 5px 20px #0001}label{display:block;font-weight:700;margin:9px 0 5px}input,select,button{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;font-size:16px}button{border:0;background:#111;color:#fff;font-weight:700;cursor:pointer;margin-top:12px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.result{font-size:26px;font-weight:800}.muted{color:#666}.copy{white-space:pre-wrap;background:#f7f7f7;border-radius:12px;padding:14px;line-height:1.7}.green{background:#087f5b}.wa{background:#168c45}@media(max-width:420px){.grid{grid-template-columns:1fr}}</style></head><body><div class="app"><div class="head"><div class="logo">M <b>&</b> K Enterprise</div><div class="sub">Poly Bag Price Calculator</div></div><div class="card"><div class="grid"><div><label>Width (inch)</label><input id="w" type="number" value="14" step=".01"></div><div><label>Length (inch)</label><input id="l" type="number" value="18" step=".01"></div><div><label>Thickness (mm)</label><input id="t" type="number" value="17" step=".01"></div><div><label>Folding</label><select id="fold"><option value="3">৩ inch</option><option value="0">ছাড়া</option></select></div></div><label>Handle</label><select id="handle"><option value="d">ডি-কাট হেন্ডেল</option><option value="t">তোরা হেন্ডেল</option></select><div id="hb" style="display:none"><label>তোরা হেন্ডেল charge (Tk/pc)</label><input id="hc" type="number" value="0" step=".01"></div><label>Print</label><select id="print"><option value=".60">১ কালার (উভয় পাশে)</option><option value="1">২ কালার (উভয় পাশে)</option></select><label>Print charge (Tk/pc) — editable</label><input id="pc" type="number" value=".60" step=".01"><label>Block</label><select id="block"><option value="0">কোনো Block নেই</option><option value="1.50">১ কালার Block</option><option value="1">২ কালার Block</option></select><label>Block charge (Tk/pc) — editable</label><input id="bc" type="number" value="0" step=".01"><label>Minimum order (pcs)</label><input id="qty" type="number" value="2000"><button onclick="calc()">Calculate Price</button></div><div class="card"><div class="muted">Price per piece</div><div class="result" id="price">৳0.00</div><div id="bd" class="muted"></div><button class="green" onclick="copyText()">Copy Customer Text</button><button class="wa" onclick="wa()">WhatsApp</button></div><div class="card"><b>Customer Copy</b><div id="customer" class="copy"></div></div></div><script>const $=x=>document.getElementById(x),bn=x=>String(x).replace(/\d/g,d=>'০১২৩৪৫৬৭৮৯'[d]),fmt=x=>Number(x||0).toFixed(2);function calc(){let w=+$('w').value,l=+$('l').value,t=+$('t').value,f=+$('fold').value,ppl=75000/((w+f)*l*t),raw=120/ppl,pr=+$('pc').value,bl=+$('bc').value,h=$('handle').value==='t'?+$('hc').value:0,total=raw+pr+bl+h+1;$('price').textContent='৳'+fmt(total);$('bd').innerHTML=`Pcs/lb: ${fmt(ppl)}<br>Raw material: ৳${fmt(raw)}<br>Print: ৳${fmt(pr)}<br>Block: ৳${fmt(bl)}<br>Handle: ৳${fmt(h)}<br>Profit: ৳1.00`;let ft=f?'৩ ইঞ্চি':'ছাড়া',ht=$('handle').value==='t'?'তোরা হেন্ডেল':'ডি-কাট হেন্ডেল',pt=$('print').value==='.60'?'১ কালার (উভয় পাশে)':'২ কালার (উভয় পাশে)';window.txt=`প্রস্থ/Width=  ${bn(w)} ইঞ্চি\nদৈঘ্য/ length=  ${bn(l)} ইঞ্চি\nগেজেট / Folding=  ${ft}\n${ht}\n${pt}\nসর্বনিম্ন অর্ডার ${bn($('qty').value)} পিস \nথিকনেস= ${bn(t)} mm\n\nদাম = ${bn(fmt(total))} টাকা পার পিস`;$('customer').textContent=window.txt}function copyText(){calc();navigator.clipboard?.writeText(window.txt);alert('Copied!')}function wa(){calc();location.href='https://wa.me/?text='+encodeURIComponent(window.txt)}$('handle').onchange=()=>$('hb').style.display=$('handle').value==='t'?'block':'none';$('print').onchange=()=>$('pc').value=$('print').value;$('block').onchange=()=>$('bc').value=$('block').value;calc();</script></body></html>
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111">
+<title>M & K Enterprise Calculator</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f5f7;color:#111}.app{max-width:560px;margin:auto;padding:18px}.head{background:#111;color:#fff;border-radius:18px;padding:20px;text-align:center}.logo{font-size:27px;font-weight:800}.logo b{color:#e11}.sub{opacity:.8;font-size:13px}.card{background:#fff;border-radius:16px;padding:16px;margin-top:14px;box-shadow:0 5px 20px #0001}label{display:block;font-weight:700;margin:9px 0 5px}input,select,button{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;font-size:16px}button{border:0;background:#111;color:#fff;font-weight:700;cursor:pointer;margin-top:12px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.foldrow{display:flex;gap:8px;align-items:center}.foldrow input{flex:1}.foldbtn{width:52px;padding:12px 8px;margin:0;font-size:22px}.result{font-size:26px;font-weight:800}.muted{color:#666}.copy{white-space:pre-wrap;background:#f7f7f7;border-radius:12px;padding:14px;line-height:1.7}.green{background:#087f5b}.wa{background:#168c45}.hint{font-size:12px;color:#777;margin-top:5px}@media(max-width:420px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="head"><div class="logo">M <b>&</b> K Enterprise</div><div class="sub">Poly Bag Price Calculator</div></div>
+<div class="card">
+<div class="grid">
+<div><label>Width (inch)</label><input id="w" type="number" value="14" step=".01" min="0"></div>
+<div><label>Length (inch)</label><input id="l" type="number" value="18" step=".01" min="0"></div>
+<div><label>Thickness (mm)</label><input id="t" type="number" value="17" step=".01" min="0"></div>
+<div><label>Folding (inch)</label><div class="foldrow"><button class="foldbtn" type="button" onclick="changeFold(-0.5)">−</button><input id="fold" type="number" value="3" step=".5" min="0"><button class="foldbtn" type="button" onclick="changeFold(0.5)">+</button></div><div class="hint">0 দিলে: গেজেট / Folding= ছাড়া</div></div>
+</div>
+<label>Handle</label><select id="handle"><option value="d">ডি-কাট হেন্ডেল</option><option value="t">তোরা হেন্ডেল</option></select>
+<div id="hb" style="display:none"><label>তোরা হেন্ডেল charge (Tk/pc)</label><input id="hc" type="number" value="0" step=".01" min="0"></div>
+<label>Print</label><select id="print"><option value=".60">১ কালার (উভয় পাশে)</option><option value="1">২ কালার (উভয় পাশে)</option></select>
+<label>Print charge (Tk/pc) — editable</label><input id="pc" type="number" value=".60" step=".01" min="0">
+<label>Block</label><select id="block"><option value="0">কোনো Block নেই</option><option value="1.50">১ কালার Block</option><option value="1">২ কালার Block</option></select>
+<label>Block charge (Tk/pc) — editable</label><input id="bc" type="number" value="0" step=".01" min="0">
+<label>Minimum order (pcs)</label><input id="qty" type="number" value="2000" min="0">
+<button onclick="calc()">Calculate Price</button>
+</div>
+<div class="card"><div class="muted">Price per piece</div><div class="result" id="price">৳0.00</div><div id="bd" class="muted"></div><button class="green" onclick="copyText()">Copy Customer Text</button><button class="wa" onclick="wa()">WhatsApp</button></div>
+<div class="card"><b>Customer Copy</b><div id="customer" class="copy"></div></div>
+</div>
+<script>
+const $=x=>document.getElementById(x),bn=x=>String(x).replace(/\d/g,d=>'০১২৩৪৫৬৭৮৯'[d]),fmt=x=>Number(x||0).toFixed(2);
+function changeFold(step){let el=$('fold'),v=parseFloat(el.value)||0;v=Math.max(0,v+step);el.value=Number(v.toFixed(2));calc()}
+function calc(){
+let w=+$('w').value,l=+$('l').value,t=+$('t').value,f=Math.max(0,+$('fold').value||0);
+if(w<=0||l<=0||t<=0){$('price').textContent='৳0.00';return}
+let ppl=75000/((w+f)*l*t),raw=120/ppl,pr=Math.max(0,+$('pc').value||0),bl=Math.max(0,+$('bc').value||0),h=$('handle').value==='t'?Math.max(0,+$('hc').value||0):0,total=raw+pr+bl+h+1;
+$('price').textContent='৳'+fmt(total);
+$('bd').innerHTML=`Pcs/lb: ${fmt(ppl)}<br>Raw material: ৳${fmt(raw)}<br>Print: ৳${fmt(pr)}<br>Block: ৳${fmt(bl)}<br>Handle: ৳${fmt(h)}<br>Profit: ৳1.00`;
+let ft=f===0?'ছাড়া':bn(f)+' ইঞ্চি',ht=$('handle').value==='t'?'তোরা হেন্ডেল':'ডি-কাট হেন্ডেল',pt=$('print').value==='.60'?'১ কালার (উভয় পাশে)':'২ কালার (উভয় পাশে)';
+window.txt=`প্রস্থ/Width=  ${bn(w)} ইঞ্চি\nদৈঘ্য/ length=  ${bn(l)} ইঞ্চি\nগেজেট / Folding=  ${ft}\n${ht}\n${pt}\nসর্বনিম্ন অর্ডার ${bn($('qty').value)} পিস \nথিকনেস= ${bn(t)} mm\n\nদাম = ${bn(fmt(total))} টাকা পার পিস`;
+$('customer').textContent=window.txt
+}
+function copyText(){calc();navigator.clipboard?.writeText(window.txt);alert('Copied!')}
+function wa(){calc();location.href='https://wa.me/?text='+encodeURIComponent(window.txt)}
+$('handle').onchange=()=>{$('hb').style.display=$('handle').value==='t'?'block':'none';calc()};
+$('print').onchange=()=>{$('pc').value=$('print').value;calc()};
+$('block').onchange=()=>{$('bc').value=$('block').value;calc()};
+['w','l','t','fold','hc','pc','bc','qty'].forEach(id=>$(id).addEventListener('input',calc));
+calc();
+</script>
+</body></html>
