@@ -24,7 +24,7 @@
 <label>Print charge (Tk/pc) — editable</label><input id="pc" type="number" value=".60" step=".01" min="0">
 <label>Block</label><select id="block"><option value="0">কোনো Block নেই</option><option value="1.50">১ কালার Block</option><option value="1">২ কালার Block</option></select>
 <label>Block charge (Tk/pc) — editable</label><input id="bc" type="number" value="0" step=".01" min="0">
-<label>Minimum order (pcs)</label><input id="qty" type="number" value="2000" min="0">
+<label>Minimum order (pcs) — editable</label><input id="qty" type="number" value="2000" min="0">
 <button onclick="calc()">Calculate Price</button>
 </div>
 <div class="card"><div class="muted">Price per piece</div><div class="result" id="price">৳0.00</div><div id="bd" class="muted"></div><button class="green" id="copyBtn" onclick="copyText()">Copy Customer Text</button><button class="wa" onclick="wa()">WhatsApp</button></div>
@@ -42,16 +42,15 @@ let ppl=75000/((w+f)*l*t),raw=pound/ppl,pr=Math.max(0,+$('pc').value||0),bl=Math
 $('price').textContent='৳'+fmt(total);
 $('bd').innerHTML=`Pcs/lb: ${fmt(ppl)}<br>Pound rate: ৳${fmt(pound)}/lb<br>Raw material: ৳${fmt(raw)}<br>Print: ৳${fmt(pr)}<br>Block: ৳${fmt(bl)}<br>Handle: ৳${fmt(h)}<br>Profit: ৳1.00`;
 let ft=f===0?'ছাড়া':bn(f)+' ইঞ্চি',ht=$('handle').value==='t'?'তোরা হেন্ডেল':'ডি-কাট হেন্ডেল',pt=$('print').value==='.60'?'১ কালার (উভয় পাশে)':'২ কালার (উভয় পাশে)';
-let minQty=$('print').value==='.60'?2000:3000;
-$('qty').value=minQty;
-window.txt=`প্রস্থ/Width=  ${bn(w)} ইঞ্চি\nদৈঘ্য/ length=  ${bn(l)} ইঞ্চি\nগেজেট / Folding=  ${ft}\n${ht}\n${pt}\nসর্বনিম্ন অর্ডার ${bn(minQty)} পিস \nথিকনেস= ${bn(t)} mm\n\nদাম = ${bn(fmt(total))} টাকা পার পিস`;
+let qty=Math.max(0,+$('qty').value||0);
+window.txt=`প্রস্থ/Width=  ${bn(w)} ইঞ্চি\nদৈঘ্য/ length=  ${bn(l)} ইঞ্চি\nগেজেট / Folding=  ${ft}\n${ht}\n${pt}\nসর্বনিম্ন অর্ডার ${bn(qty)} পিস \nথিকনেস= ${bn(t)} mm\n\nদাম = ${bn(fmt(total))} টাকা পার পিস`;
 $('customer').textContent=window.txt
 }
 async function copyText(){calc();try{await navigator.clipboard.writeText(window.txt);showToast();let b=$('copyBtn');let old=b.textContent;b.textContent='✓ Copied Successfully';setTimeout(()=>b.textContent=old,1600)}catch(e){showToast('Copy failed — please try again')}}
 function showToast(msg='✓ Text copied successfully'){$('toast').textContent=msg;$('toast').classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>$('toast').classList.remove('show'),1800)}
 function wa(){calc();location.href='https://wa.me/?text='+encodeURIComponent(window.txt)}
 $('handle').onchange=()=>{$('hb').style.display=$('handle').value==='t'?'block':'none';calc()};
-$('print').onchange=()=>{$('pc').value=$('print').value;calc()};
+$('print').onchange=()=>{$('pc').value=$('print').value;$('qty').value=$('print').value==='.60'?2000:3000;calc()};
 $('block').onchange=()=>{$('bc').value=$('block').value;calc()};
 $('noFold').onchange=syncFoldState;
 ['w','l','t','fold','pound','hc','pc','bc','qty'].forEach(id=>$(id).addEventListener('input',calc));
