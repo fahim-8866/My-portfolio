@@ -42,7 +42,9 @@ let ppl=75000/((w+f)*l*t),raw=pound/ppl,pr=Math.max(0,+$('pc').value||0),bl=Math
 $('price').textContent='৳'+fmt(total);
 $('bd').innerHTML=`Pcs/lb: ${fmt(ppl)}<br>Pound rate: ৳${fmt(pound)}/lb<br>Raw material: ৳${fmt(raw)}<br>Print: ৳${fmt(pr)}<br>Block: ৳${fmt(bl)}<br>Handle: ৳${fmt(h)}<br>Profit: ৳1.00`;
 let ft=f===0?'ছাড়া':bn(f)+' ইঞ্চি',ht=$('handle').value==='t'?'তোরা হেন্ডেল':'ডি-কাট হেন্ডেল',pt=$('print').value==='.60'?'১ কালার (উভয় পাশে)':'২ কালার (উভয় পাশে)';
-window.txt=`প্রস্থ/Width=  ${bn(w)} ইঞ্চি\nদৈঘ্য/ length=  ${bn(l)} ইঞ্চি\nগেজেট / Folding=  ${ft}\n${ht}\n${pt}\nসর্বনিম্ন অর্ডার ${bn($('qty').value)} পিস \nথিকনেস= ${bn(t)} mm\n\nদাম = ${bn(fmt(total))} টাকা পার পিস`;
+let minQty=$('print').value==='.60'?2000:3000;
+$('qty').value=minQty;
+window.txt=`প্রস্থ/Width=  ${bn(w)} ইঞ্চি\nদৈঘ্য/ length=  ${bn(l)} ইঞ্চি\nগেজেট / Folding=  ${ft}\n${ht}\n${pt}\nসর্বনিম্ন অর্ডার ${bn(minQty)} পিস \nথিকনেস= ${bn(t)} mm\n\nদাম = ${bn(fmt(total))} টাকা পার পিস`;
 $('customer').textContent=window.txt
 }
 async function copyText(){calc();try{await navigator.clipboard.writeText(window.txt);showToast();let b=$('copyBtn');let old=b.textContent;b.textContent='✓ Copied Successfully';setTimeout(()=>b.textContent=old,1600)}catch(e){showToast('Copy failed — please try again')}}
