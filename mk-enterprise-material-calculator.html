@@ -71,10 +71,10 @@ footer{text-align:center;color:#94a3b8;font-size:12px;padding:18px}
 </div>
 
 <div class="card">
-<h3>🧪 Adhesive & Printing Cost</h3>
+<h3>🧪 Adhesive & Printing Cost (Per Piece)</h3>
 <div class="grid">
-<div><label>Adhesive Rate</label><div class="input-wrap"><input id="adhRate" type="number" value="180" min="0" step="any"><span>৳/lb</span></div></div>
-<div><label>Printing Rate</label><div class="input-wrap"><input id="printRate" type="number" value="0" min="0" step="any"><span>৳/lb</span></div></div>
+<div><label>Adhesive Rate</label><div class="input-wrap"><input id="adhRate" type="number" value="0" min="0" step="any"><span>৳/pcs</span></div></div>
+<div><label>Printing Rate</label><div class="input-wrap"><input id="printRate" type="number" value="0" min="0" step="any"><span>৳/pcs</span></div></div>
 <div><label>Selling Rate</label><div class="input-wrap"><input id="sellRate" type="number" value="160" min="0" step="any"><span>৳/lb</span></div></div>
 </div>
 <button class="btn" id="reset">Reset Defaults</button>
@@ -99,7 +99,7 @@ footer{text-align:center;color:#94a3b8;font-size:12px;padding:18px}
 <div class="summary-row"><span>Selling Value</span><strong id="sellingValue">—</strong></div>
 <div class="summary-row"><span>Estimated Profit</span><strong id="profit">—</strong></div>
 </div>
-<p class="small">Profit = Selling Value − Total Cost. Material, adhesive, printing and selling rates are editable. Results update automatically.</p>
+<p class="small">Adhesive Cost = Order Quantity × Adhesive Rate. Printing Cost = Order Quantity × Printing Rate. Total Cost = Material Cost + Adhesive Cost + Printing Cost.</p>
 </div>
 </aside>
 </div>
@@ -120,8 +120,8 @@ function calc(){
  const pp=75000/wi/li/t;
  const lb=q/pp;
  const mc=lb*mr;
- const ac=lb*ar;
- const pc=lb*pr;
+ const ac=q*ar;
+ const pc=q*pr;
  const total=mc+ac+pc;
  const sales=lb*sr;
  const profit=sales-total;
@@ -136,7 +136,7 @@ function calc(){
  $('profit').parentElement.style.color=profit>=0?'#86efac':'#fca5a5';
 }
 ids.forEach(id=>$(id).addEventListener('input',calc));
-$('reset').addEventListener('click',()=>{const d={width:12,length:16,thickness:40,qty:2000,materialRate:120,adhRate:180,printRate:0,sellRate:160};ids.forEach(id=>$(id).value=d[id]);calc()});
+$('reset').addEventListener('click',()=>{const d={width:12,length:16,thickness:0.04,qty:2000,materialRate:120,adhRate:0,printRate:0,sellRate:160};ids.forEach(id=>$(id).value=d[id]);calc()});
 calc();
 </script>
 </body>
