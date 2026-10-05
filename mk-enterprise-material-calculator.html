@@ -55,9 +55,9 @@ footer{text-align:center;color:#94a3b8;font-size:12px;padding:18px}
 <div class="card">
 <h3>📏 Product Dimensions</h3>
 <div class="grid grid3">
-<div><label>Width</label><div class="input-wrap"><input id="width" type="number" value="12" min="0" step="any"><span>cm</span></div></div>
-<div><label>Length</label><div class="input-wrap"><input id="length" type="number" value="16" min="0" step="any"><span>cm</span></div></div>
-<div><label>Thickness</label><div class="input-wrap"><input id="thickness" type="number" value="0.04" min="0" step="any"><span>mm</span></div></div>
+<div><label>Width</label><div class="input-wrap"><input id="width" type="number" value="" min="0" step="any"><span>cm</span></div></div>
+<div><label>Length</label><div class="input-wrap"><input id="length" type="number" value="" min="0" step="any"><span>cm</span></div></div>
+<div><label>Thickness</label><div class="input-wrap"><input id="thickness" type="number" value="" min="0" step="any"><span>mm</span></div></div>
 </div>
 <div class="formula">PCS per Pound = 75,000 ÷ Width(inch) ÷ Length(inch) ÷ Thickness(mm)<br>1 inch = 2.54 cm<br>Thickness will be used directly in mm — no mm conversion.</div>
 </div>
@@ -65,19 +65,19 @@ footer{text-align:center;color:#94a3b8;font-size:12px;padding:18px}
 <div class="card">
 <h3>📦 Order & Material Rate</h3>
 <div class="grid">
-<div><label>Order Quantity</label><div class="input-wrap"><input id="qty" type="number" value="2000" min="0"><span>pcs</span></div></div>
-<div><label>Material Rate</label><div class="input-wrap"><input id="materialRate" type="number" value="120" min="0" step="any"><span>৳/lb</span></div></div>
+<div><label>Order Quantity</label><div class="input-wrap"><input id="qty" type="number" value="" min="0"><span>pcs</span></div></div>
+<div><label>Material Rate</label><div class="input-wrap"><input id="materialRate" type="number" value="" min="0" step="any"><span>৳/lb</span></div></div>
 </div>
 </div>
 
 <div class="card">
 <h3>🧪 Adhesive & Printing Cost (Per Piece)</h3>
 <div class="grid">
-<div><label>Adhesive Rate</label><div class="input-wrap"><input id="adhRate" type="number" value="0" min="0" step="any"><span>৳/pcs</span></div></div>
-<div><label>Printing Rate</label><div class="input-wrap"><input id="printRate" type="number" value="0" min="0" step="any"><span>৳/pcs</span></div></div>
-<div><label>Selling Rate</label><div class="input-wrap"><input id="sellRate" type="number" value="160" min="0" step="any"><span>৳/lb</span></div></div>
+<div><label>Adhesive Rate</label><div class="input-wrap"><input id="adhRate" type="number" value="" min="0" step="any"><span>৳/pcs</span></div></div>
+<div><label>Printing Rate</label><div class="input-wrap"><input id="printRate" type="number" value="" min="0" step="any"><span>৳/pcs</span></div></div>
+<div><label>Selling Rate</label><div class="input-wrap"><input id="sellRate" type="number" value="" min="0" step="any"><span>৳/lb</span></div></div>
 </div>
-<button class="btn" id="reset">Reset Defaults</button>
+<button class="btn" id="reset">Clear All</button>
 </div>
 </section>
 
@@ -136,7 +136,7 @@ function calc(){
  $('profit').parentElement.style.color=profit>=0?'#86efac':'#fca5a5';
 }
 ids.forEach(id=>$(id).addEventListener('input',calc));
-$('reset').addEventListener('click',()=>{const d={width:12,length:16,thickness:0.04,qty:2000,materialRate:120,adhRate:0,printRate:0,sellRate:160};ids.forEach(id=>$(id).value=d[id]);calc()});
+$('reset').addEventListener('click',()=>{ids.forEach(id=>$(id).value='');calc()});
 calc();
 </script>
 </body>
